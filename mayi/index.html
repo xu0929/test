@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>蚂蚁金服商家中心</title>
+	<style>
+		:root{
+			--w:1200px;
+			--jz:0 auto;
+		}
+		html,body,ul,li,a,div,img,span,input,form,h3,p
+		{
+			margin:0; 
+			padding: 0;
+		}
+		img{
+			border: 0;
+		}
+		ul
+		{
+			list-style: none;
+		}
+		a
+		{
+			text-decoration: none;
+			color:#000;
+		}
+		.header
+		{
+			
+		}
+		.register-box
+		{
+			background: rgb(58,58,58);
+			/*padding: 5px;*/
+			min-width: 1200px;
+			/*max-width: 1440px;*/
+		}
+		.register
+		{
+			margin:var(--jz);
+			width:var(--w);
+			font-size: 13px;
+		}
+		.register:after
+		{
+			content: ' ';
+			display: block;
+			clear: both;
+		}
+		.register a
+		{
+			color:#aaa;
+			height: 28px;
+			display: inline-block;
+			line-height: 28px;
+		}
+		.register a:hover
+		{
+			color:#fff;
+		}
+		.register-left
+		{
+			float: left;
+		}
+		.register-left ul
+		{
+
+		}
+		.register-left li
+		{
+			display: inline-block;
+			margin-right: 30px;
+		}
+		.register-left a
+		{
+			
+		}
+		.register-right
+		{
+			float: right;
+		}
+		.register-right ul
+		{
+			
+		}
+		.register-right ul li
+		{
+			display: inline-block;
+			color:#fff;
+			position: relative;
+		}
+		.register-right>ul>li:nth-child(even)
+		{
+			margin:0 3px;
+		}
+		.register-right>ul>li:first-child>a:first-child
+		{
+			margin-right: 15px;
+		}
+		.register-right>ul>li>a
+		{
+
+		}
+		.register-right ul ul
+		{
+			display: none;
+			width: 280px;
+			background: rgb(50,50,50);
+			position: absolute;
+			right:0px;
+			top:28px;
+			padding:6px 0;
+			/*padding-left: 10px;*/
+			z-index: 1000;
+		}
+		.register-right ul li:hover ul
+		{
+			display: block;
+		}
+		.register-right ul ul li
+		{
+			display: block;
+			padding-left:10px;
+			line-height: 40px;
+			height: 40px;
+		}
+		.register-right ul ul li:nth-child(1):hover,.register-right ul ul li:nth-child(2):hover
+		{
+			background:rgb(30,30,30);
+		}
+		.register-right ul ul li:nth-child(3)
+		{
+			border-bottom: 1px solid #ccc;
+			margin:0 10px;
+			height: 0px;
+			line-height: 0px;
+		}
+		.register-right ul ul li:nth-child(4)
+		{
+			font-size: 12px;
+			color:#aaa;
+		}
+		.register-right ul ul li:nth-child(5)
+		{
+			font-size: 20px;
+		}
+		.register-right ul ul a
+		{
+			color:#fff;
+		}
+		.nav
+		{
+			width: var(--w);
+			margin:var(--jz);
+			overflow: hidden;
+			margin-top: 15px;
+			
+			/*border: 1px solid purple;*/
+		}
+		.nav-logo
+		{
+			float: left;
+			/*border:1px solid red;*/
+		}
+		.nav-logo img
+		{
+			/*border: 1px solid blue;*/
+			vertical-align: bottom;
+			
+		}
+		.nav-content
+		{
+			float: right;
+		}
+		.nav-content>ul
+		{
+			
+			width: 900px;
+		}
+		.nav-content>ul>li
+		{
+			float: left;
+			height: 66px;
+			line-height: 66px;
+
+		}
+		.nav-content>ul>li:hover
+		{
+			border-bottom:2px solid rgb(25,172,247);
+
+		}
+		.nav-content>ul>li:hover .solution{
+			display: block;
+
+		}
+		.nav-content>ul>li.active{
+			border-bottom:2px solid rgb(25,172,247);
+		}
+		.nav-content>ul>li.active a{
+			color: rgb(25,172,247);
+		}
+		.nav-content>ul>li>a
+		{
+			display: block;
+			padding:0 20px;
+			/*float: left;  ie6代码*/
+		}
+		.solution
+		{
+			position: absolute;
+			left: 0;
+			
+			height: 360px;
+			display: none;
+			/*z-index: 10;*/
+			width: 100%;
+		}
+		.subfield{
+		    margin-top: 2px;
+		    display: none;
+		    height: 360px;
+		    width: 100%;
+		    position: absolute;
+		    left: 0;
+		    z-index: 100;
+		    background-color: rgba(0,0,0,0.8);
+		}
+
+		.nav-content>ul>li:hover .subfield{
+		    display: block;
+		}
+		.subfield-color{
+		    width: 1200px;
+		    margin: 0 auto;
+		    overflow: hidden;
+		}
+
+		.subfield-left{
+		    float:left;
+		    border-right: 2px solid #aaa;
+		    margin-top:20px;
+		    margin-bottom: 20px;
+		    height: 320px;
+		}
+		.subfield-left ul{
+		}
+		.subfield-left li{
+		    padding:10px 30px;
+		    display: block;
+		    color:white;
+		}
+		.subfield-left li:nth-child(1){
+		    border-right: 2px solid deepskyblue;
+		    position: relative;
+		    left: 2px;
+		    color: deepskyblue;
+		}
+		#subfield-top{
+		    /*display: none;*/
+		}
+		.Sr,.sr2{
+		    font-size: 13px;
+		    margin: 15px 15px;
+		    padding: 5px 10px;
+		    float: left;
+		    width: 300px;
+		    /*border: 1px solid red;*/
+		    background-color: #414141;
+		}
+		.Sr span{
+		    color: white;
+		    display: block;
+		    line-height:30px;
+		    padding: 0px;
+		    margin: 0;
+		}
+		.Sr span:nth-child(2){
+		    font-size: 10px;
+		    color: #aaa;
+		}
+		.Sr:hover{
+		    background-color: deepskyblue;
+		}
+		#subfield-center{
+		    display: none;
+		}
+		#subfield-buttom{
+		    display: none;
+		}
+		.banner
+		{
+			z-index: 10;
+			position: relative;
+			/*border: red 5px solid;*/
+		}
+		.banner ul
+		{
+
+		}
+		.banner li
+		{
+
+		}
+		.banner li a
+		{
+			min-width: 1200px;
+			display: block;
+			height: 360px;
+			background: url(images/b4.jpg) center top;
+		}
+		.login
+		{
+
+			position: absolute;
+			right:200px;
+			top:20px;
+			width: 286px;
+			height: 294px;
+			background: rgba(0,0,0,0.5);
+		}
+		.login-tab
+		{
+			width: 60px;
+			height: 60px;
+			overflow: hidden;
+			/*border: 5px solid blue;*/
+			position: absolute;
+			right: 0;
+			top:0;
+		}
+		.login-tab img
+		{
+			position: absolute;
+			left:-393px;
+			top:-260px;
+			transition: all 0.2s;
+		}
+		.login-tab img:hover
+		{
+			left:-333px;
+			top:-200px;
+		}
+		.qr-code
+		{
+			/* border: 5px solid blue; */
+			margin:20px;
+			text-align: center;
+			display: none;
+		}
+		.qr-code span
+		{
+			color: #fff;
+			font-size: 18px;
+		}
+		.qr-code span:nth-of-type(2)
+		{
+			font-size: 14px;
+		}
+		.qr
+		{
+			border:10px solid #fff;
+			width: 120px;
+			height: 120px;
+			margin: 20px auto 10px;
+			overflow: hidden;
+			position: relative;
+			margin-top: 20px;
+		}
+		.qr{}
+		.qr img
+		{
+			position: absolute;
+			left:0;
+			top:-349px;
+		}
+		.help-down
+		{
+			color: #fff;
+			font-size: 12px;
+			margin-top: 20px;
+		}
+		.help-down a
+		{
+			color: inherit;
+		}
+		.help-down a:hover
+		{
+			text-decoration: underline;
+		}
+		.help-down i
+		{
+			font-style: normal;
+			margin: 0 10px;
+		}
+		.login-form
+		{
+			
+		}
+		.login-form form
+		{
+			/*margin: 20px;*/
+			text-align: center;
+			
+		}
+		.login-form span
+		{
+			color:#fff;
+			font-size: 20px;
+		}
+		.login-form div{
+			margin-top: 20px;
+
+		}
+		.login-form label{
+			display: block;
+			margin-bottom: 5px;
+		}
+		.login-form label input{
+			width: 180px;
+			height: 40px;
+			background: #fff;
+			line-height: 35px;
+			outline: none;
+			border:none;
+		}
+		.login-form label  b
+		{
+			
+			display: inline-block;
+			width: 40px;
+			height: 40px;
+			background: rgb(171,171,171);
+			cursor: pointer;
+			font-size: 20px;
+			vertical-align: bottom;
+			margin-top: 10px;
+		}
+		.login-form label img{
+			width: 40px;
+			height: 40px;
+			
+		}
+		.login-form label:hover b{
+			background: rgb(196,196,196);
+		}
+		.login-form form>a{
+			display: block;
+			text-align: right;
+			margin-right: 25px;
+			color: #fff;
+			font-size: 12px;
+		}
+		.login-form form>a:hover{
+			text-decoration: underline;
+		}
+		.login-form form>input{
+			color: #fff;
+			background: rgb(0,170,238);
+			border:0;
+			width:220px;
+			height:40px;
+			border-radius: 5px;
+			margin-top: 10px;
+			letter-spacing: 8px;
+		}
+		.login-form form>input:hover
+		{
+			background: rgb(0,163,210);
+		}
+		.login-form div:nth-of-type(2)
+		{
+			text-align: right;
+		}
+		.login-form div:nth-of-type(2) a
+		{
+			color: #fff;
+			font-size: 12px;
+		}
+		.login-form div:nth-of-type(2) a:nth-child(3)
+		{
+			color: rgb(0,170,238);
+			padding: 35px;
+		}
+		.login-form div:nth-of-type(2) a:hover{
+			text-decoration: underline;
+		}
+		.service
+		{
+			position: fixed;
+			right: 0;
+			top:220px;
+			width: 100px;
+			height: 120px;
+		}
+		.service a
+		{
+			margin-top: 20px;
+			display: inline-block;
+		}
+		.service img
+		{
+			width: 100px;
+		}
+		.service span
+		{
+			display: block;
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			right:0;
+			top:0;
+			background: #ccc;
+			text-align: center;
+			line-height: 20px;
+			color: red;
+		}
+		.main{
+			width: var(--w);
+			margin: var(--jz);
+			margin-top: 15px;
+		}
+		.main-head{
+			font-style: 14px;
+		}
+		.main-head *{
+			vertical-align: middle;
+		}
+		.main-head>span{
+			background: rgb(250,153,27);
+			display: inline-block;
+			color: #fff;
+			width: 72px;
+			line-height: 26px;
+			text-align: center;
+			border-radius: 2px;
+		}
+		.main-head ul{
+			display: inline-block;
+			margin-left: 25px;
+			width: 1095px;
+		}
+		.main-head li{
+			display: inline-block;
+			margin-right: 30px;
+		}
+		.main-head li:first-child{
+
+			
+		}
+		.main-head li:first-child a span:last-child{
+			background: red;
+			color: #fff;
+			font-size: 12px;
+			margin-right: 15px;
+			line-height: 1;
+
+
+
+		}
+		.main-head li:last-child{
+			margin-right: 0;
+			float: right;
+
+			
+		}
+		.main-head li a{
+			width: 260px;
+			display: inline-block;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		.main-head li:last-child a{
+			width: auto;
+			color: rgb(154,154,154);
+		}
+		.main-head li a span{
+			color: rgb(154,154,154);
+
+		}
+		.main-ad{
+			margin-top: 50px;
+			text-align: center;
+			
+		}
+		.main-ad ul{
+			/*overflow: hidden;*/
+			height: 240px;
+		}
+		.main-ad li{
+			float: left;
+			width: 198px;
+			border: 1px solid #ccc;
+			height: 238px;
+			border-radius: 10px;
+			margin-right: 50px;	
+			overflow: hidden;
+			transition:all 0.2s;	
+		}
+		.main-ad li:hover
+		{
+			box-shadow: 0px 0px 10px #ccc;
+			margin-top:-1px;			
+		}
+		.main-ad li img{
+			width: 100px;
+			display: block;
+			margin: 20px auto 20px;
+			transition: all 0.5s;
+		}
+		.main-ad li:hover img{
+			width: 50px;
+			margin-bottom:10px; 
+		}
+		.main-ad li:last-child{
+			margin-right: 0;
+			background: url(images/13.png) no-repeat right top;
+			background-size:30%;
+			position: relative;
+			
+		}
+		.main-ad li:last-child i{
+			font-style: normal;
+			position: absolute;
+			top: 13px;
+			right: 0;
+			font-size: 12px;
+			transform: rotate(45deg);
+			color: #fff;
+		}
+		.main-ad li a{
+			
+		}
+		.main-ad img{
+			width: 100px;
+			display: block;
+			margin: 20px auto;
+
+		}
+		.main-ad h3{
+			font-weight: normal;
+			color: #333;
+		}
+		.main-ad  li p{
+			font-size: 12px;
+			color: #999;
+			margin: 20px auto 50px auto;
+			width: 156px;
+		}
+		.main-ad li:hover p
+		{
+			margin-bottom: 30px;
+		}
+		.main-ad li:nth-child(4):hover p,.main-ad li:nth-child(5):hover p
+		{
+			margin-bottom: 15px;
+		}
+		.main-ad span{
+			display: block;
+			width: 166px;
+			line-height: 36px;
+			border-radius: 4px;
+			background:rgb(5,166,243);
+			margin:0 auto;
+			color: #fff;
+
+		}
+		.main-ad a{
+			display: block;
+			margin-top: 20px;
+			color:rgb(0,170,238);
+		}
+		.service-center{
+			width: var(--w);
+			height:  var(--jz);
+
+		}
+		.service-center img{
+			width: 90%;
+			margin: var(--jz);
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="register-box">
+			<div class="register">
+				<div class="register-left">
+					<ul>
+						<li><a href="">个人</a></li>
+						<li><a href="">商家</a></li>
+					</ul>
+				</div>
+				<div class="register-right">
+					<ul>
+						<li>
+							<a href="">登录</a>
+							<a href="">注册</a>
+						</li>
+						<li>|</li>
+						<li><a href="">接入指引</a></li>
+						<li>|</li>
+						<li><a href="">开放平台</a></li>
+						<li>|</li>
+						<li>
+							<a href="">帮助中心</a>
+							<ul>
+								<li><a href="">自助服务</a></li>
+								<li><a href="">在线咨询</a></li>
+								<li></li>
+								<li>商家专线</li>
+								<li>0571-88158090</li> 
+								<li>服务时间：周一至周日 09:00-22:00</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="nav">
+			<div class="nav-logo">
+				<a href=""><img src="images/12.png" alt="蚂蚁金服商家中心" height="60"></a>
+			</div>
+			<div class="nav-content">
+				<ul>
+					<li class="active"><a href="">首页</a></li>
+					<li><a href="">接入指引</a></li>
+					<li><a href="">产品大全</a></li>
+					<li>
+						<a href="">解决方案</a>
+						<div class="subfield">
+							<div class="subfield-color">
+								<div class="subfield-left">
+									<ul id="option">
+										<li>商业消费</li>
+										<li>政务民生</li>
+										<li>共享经济</li>
+									</ul>
+								</div>
+								<div id="subfield-top">
+									<div class="Sr">
+										<span>3C行业解决方案</span>
+										<span>3C数码行业的信贷解决方案</span>
+									</div>
+									<div class="Sr">
+										<span>酒店行业解决方案</span>
+										<span>星级与连锁酒店支付对账与会员营销</span>
+									</div>
+									<div class="Sr">
+										<span>海涛行业解决方案</span>
+										<span>解决进口跨店电商行业支付单申报痛点</span>
+									</div>
+									<div class="Sr">
+										<span>数字阅读解决方案</span>
+										<span>数字阅读行业支付，营销等场景的解决方案</span>
+									</div>
+									<div class="Sr">
+										<span>视频直播解决方案</span>
+										<span>适用长（短）视频，直播等不同业态的解决方案</span>
+									</div>
+									<div class="Sr"> 
+										<span>停车行业解决方案</span>
+										<span>提升停车管管理效率，创新电商管理</span>
+									</div>
+									<div class="Sr">
+										<span>旅游景区解决方案</span>
+										<span>为景区景点定制的支付与营销解决方案</span>
+									</div>
+								</div>
+								<div id="subfield-center">
+									<div class="Sr">
+										<span>智慧城市解决方案</span>
+										<span>推进互联网+政务升级</span>
+									</div>
+									<div class="Sr">
+										<span>医疗行业解决方案</span>
+										<span>帮助医患双向解决，看病就医更简单</span>
+									</div>
+									<div class="Sr">
+										<span>物业行业解决方案</span>
+										<span>提升物业管理效率与服务体验</span>
+									</div>
+									<div class="Sr">
+										<span>运营商行业解决方案</span>
+										<span>运营商线上行业的解决方案</span>
+									</div>
+									<div class="Sr">
+										<span>物流行业解决方案</span>
+										<span>物流行业的资金管理解决方案</span>
+									</div>
+									<div class="Sr">
+										<span>客运行业解决方案</span>
+										<span>客运行业扫码付款，电子票解决方案</span>
+									</div>
+									<div class="Sr">
+										<span>中小学，幼儿园缴费解决方案</span>
+										<span>解决中小学幼儿园缴费问题</span>
+									</div>
+									<div class="Sr">
+										<span>公交乘车码解决方案</span>
+										<span>助力公共交通机构的互联网化转型</span>
+									</div>
+								</div>
+								<div id="subfield-buttom">
+									<div class="Sr">
+										<span>无人值守场景解决方案</span>
+										<span>为场馆、园区提供人员核身、服务结算的解决方案</span>
+									</div>
+									<div class="Sr">
+										<span>共享单车解决方案</span>
+										<span>共享单车收付款与信用免押金服务解决方案</span>
+									</div>
+									<div class="Sr">
+										<span>共享充电解决方案</span>
+										<span>为商家提供的自助充电设备解决方案</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>				
+			</div>
+		</div>
+		<div class="banner">
+			<ul>
+				<li><a href=""></a></li>
+			</ul>
+			<div class="login">
+				<div class="login-tab">
+					<img src="images/15.png" alt="登录切换">
+				</div>
+				<div class="qr-code">
+					<span>扫码登录</span>
+					<div class="qr">
+						<img src="images/15.png" alt="蚂蚁金服商家中心">
+					</div>
+					<span>请使用手机支付宝扫码</span>
+					<div class="help-down">
+						<a href="">使用帮助</a>
+						<i>|</i>
+						<a href="">下载手机支付宝</a>
+					</div>
+				</div>
+				<div class="login-form">
+					<form action="">
+						<span>登录支付宝</span>
+						<div>
+							<label for=""><b><img src="images/16.png" alt=""></b><input type="text" placeholder="邮箱/手机号/淘宝会员名"></label>
+							<label for=""><b><img src="images/17.png" alt=""></b><input type="password"></label>
+						</div>
+						<a href="">忘记登录密码？</a>
+						<input type="submit" value="登录">
+						<div>
+							<a href="">淘宝会员登录</a>
+							<a href="">账户激活</a>
+							<a href="">免费注册</a>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="service">
+				<a href=""><img src="images/1.png" alt="客服"></a>
+				<span>&times;</span>
+			</div>
+		</div>
+	</div>
+	<div class="main">
+		<div class="main-head">
+			<span>最新公告</span>
+			<ul>
+				<li><a href=""><span>[8.20]</span>收发现金红包产品下线公告<span>new</span></a></li>
+				<li><a href=""><span>[6.12]</span>关于委托充值服务升级的公告</a></li>
+				<li><a href=""><span>[1.25]</span>关于“收款到银行账户”产品升级维护公告</a></li>
+				<li><a href=""><span>更多公告>></span></a></li>
+			</ul>
+		</div>
+		<div class="main-ad">
+			<ul>
+				<li>
+					<a href="">
+						<img src="images/5.png" alt="">
+						<h3>电脑网站支付</h3>
+						<p>用户在商家网站进行付款</p>
+						<span>我要接入</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/6.png" alt="">
+						<h3>手机网站支付</h3>
+						<p>用户在手机网站进行付款</p>
+						<span>我要接入</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/7.png" alt="">
+						<h3>APP支付</h3>
+						<p>用户在商家APP内进行付款</p>
+						<span>我要接入</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/8.png" alt="">
+						<h3>当面付</h3>
+						<p>只需扫描用户的付款码，或用户扫描商家的二维码完成付款</p>
+						<span>我要接入</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="images/9.png" alt="">
+						<h3>收钱码</h3>
+						<p>支付宝最新收钱工具，收钱、提钱均免费</p>
+						<span>我要接入</span>
+					</a>
+					<i>免手续费</i>
+				</li>
+			</ul>
+			<a href="">更多产品&gt;&gt;</a>
+		</div>
+		<div class="service-center">
+			<img src="images/10.png" alt="">
+		</div>
+	</div>
+	<div class="foot">
+		
+	</div>
+	<script src="scripts/myjf.js"></script>
+</body>
+</html>

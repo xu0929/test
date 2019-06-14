@@ -1,0 +1,250 @@
+:root{
+	--w:1200px;
+	--jz:0 auto;
+}
+html,body,ul,li,a,div,img,span,input,form{
+	margin: 0;
+	padding: 0;
+}
+img{
+	border:0;
+}
+ul{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: #000;
+}
+.header{
+	
+}
+.register-box{
+	background: rgb(58, 58, 58);
+	min-width:1200px;
+
+}
+.register{
+	width: var(--w);
+	margin: 0 auto;
+	font-size: 13px;
+
+}
+.register:after{
+	content: " ";
+	display:block;
+	clear: both;
+}
+.register a{
+	color:#aaa;
+	height:28px;
+	display:inline-block;
+	line-height:28px;
+}
+.register a:hover{
+	color:#fff;
+} 
+.register-left{
+	float:left;
+}
+.register-left ul{
+
+}
+.register-left li{
+	display: inline-block;
+	margin-left: 10px;
+}
+.register-left a{
+	color:#aaa;
+}
+.register-right{
+	float:right;
+}
+.register-right ul{
+	
+}
+.register-right ul li{
+	display:inline-block;
+	color:#fff;
+	position: relative;
+}
+.register-right>ul>li:nth-child(even){
+	margin: 0 3px;
+}
+.register-right>ul>li:first-child>a:first-child{
+	margin-right:15px;
+}
+.register-right>ul>li>a{
+
+}
+.register-right ul ul{
+	display:none;
+	width:280px;
+	background: rgb(50,50,50);
+	position: absolute;
+	right:-5px;
+	top:28px;
+	padding: 10px 0;
+	
+}
+.register-right ul li:hover ul{
+	display:block;
+}
+.register-right ul ul li{
+	display:block;
+	padding-left: 10px;
+	line-height:30px;
+	height:40px;
+
+}
+.register-right ul ul li:nth-child(1):hover,
+.register-right ul ul li:nth-child(2):hover{
+	background:rgb(30,30,30);
+
+}
+.register-right ul ul li:nth-child(3){
+	border-bottom: 1px solid #ccc;
+	margin: 0 10px;
+	height:0;
+	line-height:0;
+}
+.register-right ul ul li:nth-child(4)
+{
+	font-size:12px;
+	color: #aaa;
+}
+.register-right ul ul li:nth-child(5)
+{
+	font-size:20px;
+}
+.register-right ul ul li a{
+	color: #fff;
+}
+.nav{
+	width:var(--w);
+	margin:var(--jz);
+	overflow: hidden;
+	margin-top: 10px;
+}
+.nav-logo{
+	float:left;
+	
+}
+.nav-logo img{
+	height:60px;
+	vertical-align: bottom;
+}
+.nav-content{
+	float:right;
+}
+.nav-content ul{
+	overflow:hidden;
+	width:900px
+}
+.nav-content li{
+	float:left;
+	height:66px;
+	line-height:66px;
+	
+}
+.nav-content li:hover{
+	border-bottom:2px solid rgb(25,172,247);
+	color:rgb(25,172,247);
+}
+.nav-content li:hover a{
+	
+	color:rgb(25,172,247);
+}
+.nav-content li.active{
+	border-bottom:2px solid rgb(25,172,247);
+}
+.nav-content li.active a{
+	color:rgb(25,172,247);
+}
+.nav-content li a{
+	display:block;
+	padding: 0 20px;
+}
+.banner{
+	position:relative;
+}
+.banner ul{
+
+}
+.banner li{
+	
+}
+.banner li a{
+	display:block;
+	height:360px;
+	background: url(images/b4.jpg) center top;
+}
+.login{
+	position:absolute;
+	right：120px;
+	top:20px;
+	width:286px;
+	height:294px;
+	background: rgba(0, 0, 0, 0.5);
+	
+}
+.login-tab{
+	width:60px;
+	height:60px;
+	overflow:hidden;
+	position:absolute;
+	right:
+	
+}
+.login-tab img{
+	position:absolute;
+	left:-300px;
+	top:-200px;
+}
+.qr-code{
+	margin:20px;
+	text-align: center;
+}
+.qr{
+	width:120px;
+	height:120px;
+	overflow: hidden;
+	position:
+}
+.qr-code span{
+	
+}
+.qr-code img{
+	
+}
+.help-down{
+	
+}
+.help-down a{
+	
+}
+.help-down i{
+	
+}
+.service{
+	position:fixed;
+	right:0;
+	top:215px;
+	width:100px;
+	height:120px;
+}
+.service a{
+	display:block;
+	margin-top: 20px;
+}
+.service img{
+	width:100px;
+}
+.service span{
+	display:block;
+	width:20px;
+	height:20px;
+	position:absolute;
+	right:0;
+	top:0;
+}
